@@ -8,6 +8,7 @@ const BottomBar = require('inquirer/lib/ui/bottom-bar')
 const loader = ['🔍 Prepare to initialize.', '🔍 Prepare to initialize..', '🔍 Prepare to initialize...', '🔍 Prepare to initialize'];
 
 const {
+  HELP,
   UPDATE,
   WELCOME,
   SUCCESS,
@@ -18,12 +19,16 @@ const {
 const {
   copyFile
 } = require('../utils/copy')
+
 const current_version = require('../package.json').version
 let latest_version = ''
-const get_latest_version = (callback) => {
-  exec('npm view horizon-ui-cli version').stdout.on('data', data => {
-    latest_version = data.replace(/[\r\n]/g, "");
-    callback && callback()
+
+function getLatestVersion() {
+  return new Promise(resolve => {
+    exec('npm view horizon-ui-cli version').stdout.on('data', data => {
+      latest_version = data.replace(/[\r\n]/g, "");
+      resolve()
+    })
   })
 }
 
@@ -43,8 +48,17 @@ const questions = [
   },
 ];
 
+/**清空命令行**/
+function clearTerminal() {
+  return new Promise(resolve => {
+    spawn('clear', [], {stdio: 'inherit'}).on('close', () => {
+      resolve()
+    })
+  })
+}
+
 /**获取用户项目所在路径**/
-function pwd() {
+function getUsersProjectPath() {
   return new Promise(resolve => {
     exec('pwd').stdout.on('data', data => {
       resolve(data.replace(/[\r\n]/g, ""))
@@ -56,7 +70,7 @@ function pwd() {
 function installPostcss(packageName) {
   return new Promise(async resolve => {
     const sourcePath = path.join(__dirname, `../template/${packageName}/postcss.config.js`)
-    const targetPath = `${await pwd()}/postcss.config.js`
+    const targetPath = `${await getUsersProjectPath()}/postcss.config.js`
     await copyFile(sourcePath, targetPath)
     console.log(COPIED)
     spawn(cmdify('yarn'), ['add', packageName, 'postcss', '-D'], {
@@ -80,24 +94,22 @@ function installComponentsLibrary() {
 
 /**安装前准备：查询是否需要升级CLI**/
 function prepareInit() {
-  return new Promise(resolve => {
+  return new Promise(async resolve => {
     let i = 4;
     const ui = new BottomBar({bottomBar: loader[i % 4]});
     const timer = setInterval(() => {
       ui.updateBottomBar(loader[i++ % 4]);
     }, 200);
-    get_latest_version(() => {
-      clearInterval(timer)
-      ui.updateBottomBar('');
-      spawn('clear', [], {stdio: 'inherit'}).on('close', () => {
-        if (latest_version !== current_version) {
-          console.log(UPDATE(current_version, latest_version))
-        } else {
-          console.log(WELCOME(current_version))
-        }
-        resolve()
-      })
-    })
+    await getLatestVersion()
+    clearInterval(timer)
+    ui.updateBottomBar('');
+    await clearTerminal()
+    if (latest_version !== current_version) {
+      console.log(UPDATE(current_version, latest_version))
+    } else {
+      console.log(WELCOME(current_version))
+    }
+    resolve()
   })
 }
 
@@ -131,13 +143,16 @@ async function execute(argv) {
     case '--version':
       console.log(require('../package.json').version)
       break
+    case '-l':
     case '--latest':
-      get_latest_version(() => {
-        console.log(latest_version)
-      })
+      await getLatestVersion()
+      console.log(latest_version)
       break
+    case '-h':
+    case '--help':
     default:
-      console.log(chalk.red('error'), chalk.blue('缺少参数'), chalk.yellow('[init]'), chalk.blue('或参数有误，请重试'))
+      await clearTerminal()
+      console.log(HELP)
   }
 }
 
