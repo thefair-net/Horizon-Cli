@@ -1,0 +1,39 @@
+{
+  "name": "horizon-ui-cli",
+  "version": "0.0.1",
+  "description": "用于在项目中添加Horizon UI组件库的脚手架",
+  "private": false,
+  "author": {
+    "name": "liqiuqi",
+    "email": "mail@qiuqi.li",
+    "url": "https://qiuqi.li"
+  },
+  "keywords": [
+    "front-end",
+    "vue",
+    "UI",
+    "components",
+    "library",
+    "horizon-ui",
+    "horizon-ui-cli"
+  ],
+  "bin": {
+    "horizon": "exec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thefair-net/Horizon-Cli.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thefair-net/Horizon-Cli/issues"
+  },
+  "homepage": "https://github.com/thefair-net/Horizon-Cli#readme",
+  "dependencies": {
+    "@types/node": "^14.6.2",
+    "chalk": "^4.1.0",
+    "cmdify": "^0.0.4",
+    "horizon-ui": "^0.2.6",
+    "inquirer": "^7.3.3"
+  }
+}
