@@ -1,20 +1,23 @@
 const chalk = require('chalk')
-const title = (current, latest) => `${chalk.reset('New version available')} ${chalk.magenta(current)} ${chalk.reset('→')} ${chalk.yellowBright(latest)}`
-const subtitle = `${chalk.reset('Run')} ${chalk.yellow('yarn global add horizon-ui-cli')} ${chalk.reset('to update!')}${chalk.yellowBright(' ')}`
+const updateTitle = (current, latest) => `${chalk.reset('New version available')} ${chalk.magenta(current)} ${chalk.reset('→')} ${chalk.yellowBright(latest)}`
+const updateSubtitle = `${chalk.reset('Run')} ${chalk.yellow('yarn global add horizon-ui-cli')} ${chalk.reset('to update!')}${chalk.yellowBright(' ')}`
 
 const UPDATE = (current, latest) => chalk.yellowBright(
   '┌───────────────────────────────────────────────────┐\n' +
   '│                                                   │\n' +
-  '│        ' + title(current, latest) + '        │\n' +
-  '│   ' + subtitle + '  │\n' +
+  '│        ' + updateTitle(current, latest) + '        │\n' +
+  '│   ' + updateSubtitle + '  │\n' +
   '│                                                   │\n' +
   '└───────────────────────────────────────────────────┘'
 )
+const welcomeTitle = `${chalk.reset('Welcome to')} ${chalk.yellow('Horizon UI CLI')}`
+const welcomeSubtitle = current => `${chalk.reset('version')} ${chalk.magenta(current)}${chalk.blue(' ')}`
+
 const WELCOME = current => chalk.blue(
   '┌─────────────────────────────────────────────┐\n' +
   '│                                             │\n' +
-  '│          Welcome to Horizon UI CLI          │\n' +
-  '│                version ' + current + '                │\n' +
+  '│          ' + welcomeTitle + '          │\n' +
+  '│                ' + welcomeSubtitle(current) + '               │\n' +
   '│                                             │\n' +
   '└─────────────────────────────────────────────┘\n'
 )

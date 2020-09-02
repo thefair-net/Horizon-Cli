@@ -3,6 +3,9 @@ const chalk = require('chalk')
 const inquirer = require('inquirer');
 const cmdify = require('cmdify');
 const {spawn, exec} = require('child_process');
+const BottomBar = require('inquirer/lib/ui/bottom-bar')
+const loader = ['🔍 Prepare to initialize.', '🔍 Prepare to initialize..', '🔍 Prepare to initialize...', '🔍 Prepare to initialize'];
+
 const {
   UPDATE,
   WELCOME,
@@ -19,7 +22,7 @@ const get_latest_version = (callback) => {
   })
 }
 
-var questions = [
+const questions = [
   {
     type: 'list',
     name: 'target',
@@ -48,14 +51,23 @@ function installRemH5() {
 
 function prepareInit() {
   return new Promise(resolve => {
+    let i = 4;
+    const ui = new BottomBar({bottomBar: loader[i % 4]});
+    const timer = setInterval(() => {
+      ui.updateBottomBar(loader[i++ % 4]);
+    }, 200);
     get_latest_version(() => {
-      if (latest_version !== current_version) {
-        console.log(UPDATE(current_version, latest_version))
-        resolve()
-      } else {
-        console.log(WELCOME(current_version))
-        resolve()
-      }
+      clearInterval(timer)
+      ui.updateBottomBar('');
+      spawn('clear', [], {stdio: 'inherit'}).on('close', () => {
+        if (latest_version !== current_version) {
+          console.log(UPDATE(current_version, latest_version))
+          resolve()
+        } else {
+          console.log(WELCOME(current_version))
+          resolve()
+        }
+      })
     })
   })
 }
