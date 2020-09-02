@@ -35,13 +35,17 @@ const COMING_SOON = chalk.yellow(
   '│                                             │\n' +
   '└─────────────────────────────────────────────┘\n'
 )
-const LOADING = chalk.rgb(200, 200, 200)(
-  '\n⚙️  Installing Horizon UI. This might take a while...\n'
+const LOADING = chalk.reset(
+  '⚙️  Installing Horizon UI. This might take a while...'
+)
+const COPIED = chalk.green(
+  `success ${chalk.reset(`postcss.config.js has been copied`)}`
 )
 module.exports = {
   UPDATE,
   WELCOME,
   SUCCESS,
   COMING_SOON,
-  LOADING
+  LOADING,
+  COPIED
 }
