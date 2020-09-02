@@ -1,0 +1,17 @@
+
+  // const cmd = 'yarn add horizon-ui'
+  // const ls = exec(cmd, function(error, stdout, stderr) {
+  //   console.log(error, stdout, stderr)
+  // })
+  // ls.stdout.on('data', data => {
+  //   console.log('stdout')
+  //   console.log(data)
+  // })
+  // ls.stderr.on('data', data => {
+  //   console.log('stderr')
+  //   console.log(data)
+  // })
+  // ls.on('close', code => {
+  //   console.log('close')
+  //   console.log(`child process exited with code ${code}`)
+  // })
