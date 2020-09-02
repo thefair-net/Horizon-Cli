@@ -12,13 +12,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
   integrity sha512-onlIwbaeqvZyniGPfdw/TEhKIh79pz66L1q06WUQqJLnAb6wbjvOtepLYTGHTqzdXgBYIE3ZdmqHDGsRsbBz7A==
 
-"@vue/composition-api@^1.0.0-beta.3":
-  version "1.0.0-beta.11"
-  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-beta.11.tgz#260e9d23d59078d7a6358fec53c77a9adc0cd5b5"
-  integrity sha512-WHwX8e1V2NxQtFn7DsgET3QKAfA8kIm13hT4lCdGMAtxbM1dZ/lczF4wdhmkKtKrZiv657aanXV+cgGFF71krg==
-  dependencies:
-    tslib "^2.0.1"
-
 ansi-escapes@^4.2.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-4.3.1.tgz#a5c47cc43181f1f38ffd7076837700d395522a61"
@@ -81,11 +74,6 @@ color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-core-js@^3.6.5:
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
-  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
-
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
@@ -116,16 +104,6 @@ has-flag@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
   integrity sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
-
-horizon-ui@^0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/horizon-ui/-/horizon-ui-0.2.6.tgz#c43a43f4562f5d92210ef2159d1a032697f6c08d"
-  integrity sha512-/ALuFukpeLSZ9UtobvXPLlcP90Ry24+bPQ7gichVWvYbwsPCzfJuZ1eWXvWJC6Lcyc/fPhJ8vDSrSXs5sp5TLw==
-  dependencies:
-    "@vue/composition-api" "^1.0.0-beta.3"
-    core-js "^3.6.5"
-    vue "^2.6.11"
-    vue-router "^3.2.0"
 
 iconv-lite@^0.4.24:
   version "0.4.24"
@@ -255,22 +233,7 @@ tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslib@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.1.tgz#410eb0d113e5b6356490eec749603725b021b43e"
-  integrity sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
-
 type-fest@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.11.0.tgz#97abf0872310fed88a5c466b25681576145e33f1"
   integrity sha512-OdjXJxnCN1AvyLSzeKIgXTXxV+99ZuXl3Hpo9XpJAv9MBcHrrJOQ5kV7ypXOuQie+AmWG25hLbiKdwYTifzcfQ==
-
-vue-router@^3.2.0:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.3.tgz#fa93768616ee338aa174f160ac965167fa572ffa"
-  integrity sha512-BADg1mjGWX18Dpmy6bOGzGNnk7B/ZA0RxuA6qedY/YJwirMfKXIDzcccmHbQI0A6k5PzMdMloc0ElHfyOoX35A==
-
-vue@^2.6.11:
-  version "2.6.12"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
-  integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

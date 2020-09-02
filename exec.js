@@ -24,6 +24,9 @@ const COMING_SOON = chalk.yellow(
   '│                                             │\n' +
   '└─────────────────────────────────────────────┘\n'
 )
+const LOADING = chalk.rgb(200,200,200)(
+  '\n⚙️  Installing Horizon UI. This might take a while...\n'
+)
 
 var questions = [
   {
@@ -43,7 +46,7 @@ var questions = [
   },
 ];
 
-function run(argv) {
+function execute(argv) {
   switch (argv[0]) {
     case 'init':
       console.log(WELCOME)
@@ -68,6 +71,7 @@ function run(argv) {
                 //   console.log('close')
                 //   console.log(`child process exited with code ${code}`)
                 // })
+                console.log(LOADING)
                 spawn(cmdify('yarn'), ['add', 'horizon-ui'], {
                   stdio: 'inherit'
                 }).on('close', code => {
@@ -90,4 +94,4 @@ function run(argv) {
   }
 }
 
-run(process.argv.slice(2));
+execute(process.argv.slice(2));
