@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    ["component",
+      {
+        "libraryName": "horizon-ui",
+        "styleLibraryName": "~node_modules/horizon-ui/static"
+      },
+      "horizon-ui"
+    ]
+  ]
+}

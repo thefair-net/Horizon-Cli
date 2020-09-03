@@ -12,7 +12,7 @@ const HELP = chalk.bold(
   '  -h, --help                            获取帮助信息\n' +
   '\n' +
   '操作<command>:\n' +
-  '  init                                  为你的项目安装定制化的Horizon UI组件库，如自定义css单位等。现已支持H5、uni-app！\n'
+  '  init                                  为你的项目安装定制化的Horizon UI组件库，如自定义css单位、引入方式等。现已支持uni-app！\n'
 )
 const UPDATE = (current, latest) => chalk.yellowBright(
   '┌───────────────────────────────────────────────────┐\n' +
@@ -33,6 +33,7 @@ const WELCOME = current => chalk.blue(
   '│                                             │\n' +
   '└─────────────────────────────────────────────┘\n'
 )
+const WARN = chalk.bgYellow.rgb(255, 255, 255)(' WARN ' + chalk.reset.yellow(' 该操作可能会对项目造成破坏，请确保没有未被 commit 或 stash 的变更。'))
 const SUCCESS = chalk.green(
   '┌─────────────────────────────────────────────┐\n' +
   '│                                             │\n' +
@@ -50,15 +51,28 @@ const COMING_SOON = chalk.yellow(
 const LOADING = chalk.reset(
   '⚙️  Installing Horizon UI. This might take a while...'
 )
-const COPIED = chalk.green(
-  `success ${chalk.reset(`postcss.config.js has been copied`)}`
+const COPING = filename => chalk.blue(
+  `info ${chalk.reset(`${filename} 开始拷贝...`)}`
+)
+const COPIED = filename => chalk.green(
+  `success ${chalk.reset(`${filename} 拷贝成功！`)}`
+)
+const INSTALLING = packageName => chalk.blue(
+  `info ${chalk.reset(`${packageName} 开始安装...`)}`
+)
+const INSTALLED = packageName => chalk.green(
+  `success ${chalk.reset(`${packageName} 安装成功！`)}`
 )
 module.exports = {
   HELP,
   UPDATE,
   WELCOME,
+  WARN,
   SUCCESS,
   COMING_SOON,
   LOADING,
-  COPIED
+  COPING,
+  COPIED,
+  INSTALLING,
+  INSTALLED
 }
