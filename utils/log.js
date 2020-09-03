@@ -35,11 +35,19 @@ const WELCOME = current => chalk.blue(
 )
 const WARN = chalk.bgYellow.rgb(255, 255, 255)(' WARN ' + chalk.reset.yellow(' 该操作可能会对项目造成破坏，请确保没有未被 commit 或 stash 的变更。'))
 const SUCCESS = chalk.green(
-  '┌─────────────────────────────────────────────┐\n' +
-  '│                                             │\n' +
-  '│     Horizon UI Installed Successfully!      │\n' +
-  '│                                             │\n' +
-  '└─────────────────────────────────────────────┘\n'
+  '┌─────────────────────────────┐\n' +
+  '│ ✨ Installed Successfully! ✨ │\n' +
+  '└─────────────────────────────┘\n'
+)
+const LOGO = (
+  `
+  ${chalk.red('██╗  ██╗')}${chalk.yellow(' ██████╗ ')}${chalk.green('██████╗ ')}${chalk.blue('██╗')}${chalk.magenta('███████╗')}${chalk.cyan(' ██████╗ ')}${chalk.red('███╗   ██╗')}    ${chalk.yellow('██╗   ██╗')}${chalk.green('██╗')}
+  ${chalk.red('██║  ██║')}${chalk.yellow('██╔═══██╗')}${chalk.green('██╔══██╗')}${chalk.blue('██║')}${chalk.magenta('╚══███╔╝')}${chalk.cyan('██╔═══██╗')}${chalk.red('████╗  ██║')}    ${chalk.yellow('██║   ██║')}${chalk.green('██║')}
+  ${chalk.red('███████║')}${chalk.yellow('██║   ██║')}${chalk.green('██████╔╝')}${chalk.blue('██║')}${chalk.magenta('  ███╔╝ ')}${chalk.cyan('██║   ██║')}${chalk.red('██╔██╗ ██║')}    ${chalk.yellow('██║   ██║')}${chalk.green('██║')}
+  ${chalk.red('██╔══██║')}${chalk.yellow('██║   ██║')}${chalk.green('██╔══██╗')}${chalk.blue('██║')}${chalk.magenta(' ███╔╝  ')}${chalk.cyan('██║   ██║')}${chalk.red('██║╚██╗██║')}    ${chalk.yellow('██║   ██║')}${chalk.green('██║')}
+  ${chalk.red('██║  ██║')}${chalk.yellow('╚██████╔╝')}${chalk.green('██║  ██║')}${chalk.blue('██║')}${chalk.magenta('███████╗')}${chalk.cyan('╚██████╔╝')}${chalk.red('██║ ╚████║')}    ${chalk.yellow('╚██████╔╝')}${chalk.green('██║')}
+  ${chalk.red('╚═╝  ╚═╝')}${chalk.yellow(' ╚═════╝ ')}${chalk.green('╚═╝  ╚═╝')}${chalk.blue('╚═╝')}${chalk.magenta('╚══════╝')}${chalk.cyan(' ╚═════╝ ')}${chalk.red('╚═╝  ╚═══╝')}    ${chalk.yellow(' ╚═════╝ ')}${chalk.green('╚═╝')}
+  `
 )
 const COMING_SOON = chalk.yellow(
   '┌─────────────────────────────────────────────┐\n' +
@@ -69,6 +77,7 @@ module.exports = {
   WELCOME,
   WARN,
   SUCCESS,
+  LOGO,
   COMING_SOON,
   LOADING,
   COPING,

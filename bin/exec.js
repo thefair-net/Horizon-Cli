@@ -12,6 +12,7 @@ const {
   WELCOME,
   WARN,
   SUCCESS,
+  LOGO,
   COMING_SOON,
   LOADING,
   COPING,
@@ -243,6 +244,7 @@ async function execute(argv) {
           break
       }
       console.log(SUCCESS)
+      console.log(LOGO)
       break
     case '-v':
     case '--version':
